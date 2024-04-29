@@ -8,12 +8,6 @@ RUN apt-get update && apt-get install -y python3 python3-pip iputils-ping python
 RUN python3 -m pip install --upgrade pip
 
 RUN python3 -mpip install smart_importer 
-RUN python3 -mpip install beancount_portfolio_allocation
-RUN python3 -mpip install beancount-plugins-metadata-spray
-RUN python3 -mpip install beancount-interpolate
-RUN python3 -mpip install iexfinance
-RUN python3 -mpip install black
-RUN python3 -mpip install werkzeug
 RUN python3 -mpip install argh
 RUN python3 -mpip install argcomplete
 RUN python3 -mpip install pre-commit
@@ -34,7 +28,7 @@ RUN \
     # Direct download links to external .vsix not available on https://open-vsx.org/
     # The two links here are just used as example, they are actually available on https://open-vsx.org/
     urls=(\
-        https://open-vsx.org/api/ms-python/python/2023.20.0/file/ms-python.python-2023.20.0.vsix \
+        https://open-vsx.org/api/ms-python/python/2024.4.1/file/ms-python.python-2024.4.1.vsix \
         https://open-vsx.org/api/eamodio/gitlens/14.6.1/file/eamodio.gitlens-14.6.1.vsix \
     )\
     # Create a tmp dir for downloading
