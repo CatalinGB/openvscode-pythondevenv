@@ -22,22 +22,22 @@ RUN python3 -mpip install tariochbctools
 RUN python3 -mpip install git+https://github.com/andreasgerstmayr/fava-dashboards.git
 
 SHELL ["/bin/bash", "-c"]
-RUN \
-    # Direct download links to external .vsix not available on https://open-vsx.org/
-    # The two links here are just used as example, they are actually available on https://open-vsx.org/
-    urls=(\
-        https://open-vsx.org/api/ms-python/python/2024.16.1/file/ms-python.python-2024.16.1.vsix \
-    )\
-    # Create a tmp dir for downloading
-    && tdir=/tmp/exts && mkdir -p "${tdir}" && cd "${tdir}" \
-    # Download via wget from $urls array.
-    && wget "${urls[@]}" && \
-    # List the extensions in this array
-    exts=(\
-        # From https://open-vsx.org/ registry directly
-        gitpod.gitpod-theme \
-        # From filesystem, .vsix that we downloaded (using bash wildcard '*')
-        "${tdir}"/* \
-    )\
-    # Install the $exts
-    && for ext in "${exts[@]}"; do ${OPENVSCODE} --install-extension "${ext}"; done
+# RUN \
+#     # Direct download links to external .vsix not available on https://open-vsx.org/
+#     # The two links here are just used as example, they are actually available on https://open-vsx.org/
+#     urls=(\
+#         https://open-vsx.org/api/ms-python/python/2024.16.1/file/ms-python.python-2024.16.1.vsix \
+#     )\
+#     # Create a tmp dir for downloading
+#     && tdir=/tmp/exts && mkdir -p "${tdir}" && cd "${tdir}" \
+#     # Download via wget from $urls array.
+#     && wget "${urls[@]}" && \
+#     # List the extensions in this array
+#     exts=(\
+#         # From https://open-vsx.org/ registry directly
+#         gitpod.gitpod-theme \
+#         # From filesystem, .vsix that we downloaded (using bash wildcard '*')
+#         "${tdir}"/* \
+#     )\
+#     # Install the $exts
+#     && for ext in "${exts[@]}"; do ${OPENVSCODE} --install-extension "${ext}"; done
