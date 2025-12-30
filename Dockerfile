@@ -4,7 +4,7 @@ USER root
 ENV OPENVSCODE_SERVER_ROOT="/home/.openvscode-server"
 ENV OPENVSCODE="${OPENVSCODE_SERVER_ROOT}/bin/openvscode-server"
 
-RUN apt-get update && apt-get install -y python3 python3-pip iputils-ping python-is-python3 python3-packaging
+RUN apt-get update && apt-get install -y python3.11 python3.11-venv python3.11-dev python3.11-pip iputils-ping python-is-python3 python3-packaging
 RUN python3 -m pip install --upgrade pip
 
 RUN python3 -mpip install smart_importer 
